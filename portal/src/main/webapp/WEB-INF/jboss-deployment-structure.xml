@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <module name="org.springframework" export="true">
+                <imports>
+                    <include path="META-INF**" />
+                    <include path="org**" />
+                </imports>
+            </module>
+            <module name="org.apache.cxf" slot="2.7.14"  export="true" >
+                <imports>
+                    <include path="META-INF**"/>
+                    <include path="org**"/>
+                    <include path="schemas**"/>
+                </imports>
+            </module>
+            <module name="net.carefx.framework.facade.service" export="true">
+                <imports>
+                    <include path="META-INF**" />
+                    <include path="org**" />
+                    <include path="schemas**" />
+                </imports>
+            </module>
+            <module name="org.jdom" />
+            <module name="org.dom4j" />
+            <module name="org.hornetq" />
+            <module name="org.javassist" />
+            <module name="org.jboss.netty" />
+            <module name="org.infinispan" export="true" />
+            <module name="org.apache.zookeeper" />
+            <module name="org.jboss.remote-naming" />
+            <module name="org.jboss.ironjacamar.jdbcadapters" />
+            <module name="org.jboss.as.clustering.infinispan" export="true" />
+            <module name="jline" />
+            <module name="net.sf.cglib" />
+            <module name="com.xunuo.fc.framework.file-service-api" export="true" />
+            <module name="com.xunuo.fc.framework.file-service-impl" export="true" />
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>

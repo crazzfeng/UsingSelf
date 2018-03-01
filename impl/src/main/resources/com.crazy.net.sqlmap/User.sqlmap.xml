@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crazy.net.dao.UserMapper">
+    <resultMap id="UserMap" type="com.crazy.net.pojo.User">
+        <result property="id" column="ID"/>
+        <result property="name"   column="NAME" />
+        <result property="gender"   column="GENDER" />
+        <result property="age"   column="AGE" />
+        <result property="remark"   column="REMARK" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID
+        ,NAME
+        ,GENDER
+        ,AGE
+        ,REMARK
+    </sql>
+
+    <sql id="Example_Where_Clause" >
+        <where>
+            <if test="id!=null and id!='' ">
+                AND ID = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="name!=null and name!='' ">
+                AND NAME = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="gender!=null and gender!='' ">
+                AND GENDER = #{gender,jdbcType=VARCHAR}
+            </if>
+            <if test="age!=null and age!='' ">
+                AND AGE = #{age,jdbcType=VARCHAR}
+            </if>
+            <if test="remark!=null and remark!='' ">
+                AND REMARK = #{remark,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+
+    <select id="findListWithPage" resultMap="UserMap" parameterType="com.crazy.net.pojo.User">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM usingself.USER
+        <include refid="Example_Where_Clause" />
+    </select>
+
+
+</mapper>
