@@ -13,5 +13,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: portal:com.crazy.net:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.0.5" level="project" />
+    <orderEntry type="library" name="bootstrap-4.0.0-dist" level="project" />
   </component>
 </module>

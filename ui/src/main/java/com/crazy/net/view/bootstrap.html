@@ -1,0 +1,70 @@
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@include file="practice.html"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 可选的Bootstrap主题文件（一般不使用） -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"></script>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>Hello, world!</h1>
+<button style="background-image: url('img/left-btn.gif');background-size: contain;height:33px;width:33px;">
+    进入
+</button>
+
+<form id="search_form" action="bootstrap.html">
+    <p>
+        名称：
+        <input class="input_style" id="serach_name" name="UserModel.name"/>
+        性别：
+        <input class="input_style" id="serach_gender" name="UserModel.gender"/>
+
+        <button class="button_style" id="button_search" type="submit">查询</button>
+    </p>
+    <p>
+        年龄：
+        <input class="input_style" id="serach_age" name="UserModel.age"/>
+        备注：
+        <input class="input_style" id="serach_remark" name="UserModel.remark"/>
+
+        <button class="button_style" id="button_clear" type="reset">清除</button>
+    </p>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>备注</td>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+
+<!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- 包括所有已编译的插件 -->
+<script src="js/bootstrap.min.js">
+    function search_form_value() {
+
+    }
+</script>
+</body>
+</html>
