@@ -21,4 +21,10 @@
 		<property name="poolPreparedStatements" value="false" />
 	</bean>
 
+	<!-- 通过此类代理数据源，即可打印日志（将日志模型添加到数据源中，可检测操作此数据源的一切sql） -->
+	<bean id="st-dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+		<constructor-arg ref="us_dataSource" />
+	</bean>
+
+
 </beans>

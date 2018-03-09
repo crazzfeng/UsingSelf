@@ -6,7 +6,7 @@
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
     <!-- Session工厂 -->
     <bean id="us_sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="us_dataSource"/>
+        <property name="dataSource" ref="st-dataSource"/>
         <!--<property name="configLocation" value="classpath:META-INF/us.mybatis.xml" />-->
         <property name="mapperLocations">
             <array>

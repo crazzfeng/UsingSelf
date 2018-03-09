@@ -55,7 +55,7 @@ public class WebsiteInfoMapperTest extends BaseServiceTest
     public void test_findlistWithPage()
     {
         WebsiteInfo user = new WebsiteInfo();
-        user.setName("baidu");
+        user.setHttp("baidu");
 
         List<WebsiteInfo> users = websiteInfoService.findListWithPage(new PageBounds(0,5), user);
 

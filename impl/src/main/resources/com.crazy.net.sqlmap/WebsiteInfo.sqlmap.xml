@@ -43,16 +43,16 @@
                 AND ID = #{id,jdbcType=INTEGER}
             </if>
             <if test="name!=null and name!='' ">
-                AND NAME = #{name,jdbcType=VARCHAR}
+                AND NAME like '%'||#{name,jdbcType=VARCHAR}||'%'
             </if>
             <if test="http!=null and http!='' ">
                 AND HTTP = #{http,jdbcType=VARCHAR}
             </if>
             <if test="remark!=null and remark!='' ">
-                AND REMARK = #{remark,jdbcType=VARCHAR}
+                AND REMARK like '%'||#{remark,jdbcType=VARCHAR}||'%'
             </if>
             <if test="param!=null and param!='' ">
-                AND PARAM = #{param,jdbcType=VARCHAR}
+                AND PARAM like '%'||#{param,jdbcType=VARCHAR}||'%'
             </if>
         </where>
     </sql>
@@ -152,9 +152,8 @@
         <include refid="Example_Where_Clause"/>
     </select>
 
-
     <select id="findCount" resultType="java.lang.Integer" parameterType="com.crazy.net.pojo.WebsiteInfo">
-        SELECT COUNT (*)
+        SELECT COUNT(*)
         FROM usingself.website_info
         <include refid="Example_Where_Clause"/>
     </select>

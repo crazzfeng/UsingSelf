@@ -10,60 +10,78 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>impl</artifactId>
+
+    <packaging>war</packaging>
+    <name>impl</name>
+    <url>http://maven.apache.org</url>
+
+
     <dependencies>
         <dependency>
             <groupId>com.crazy.net</groupId>
             <artifactId>api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
-
 
 
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.0.5</version>
+            <version>${org.mybatis}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>3.0.5.RELEASE</version>
+            <version>${org.springframework.jdbc}</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
-            <version>1.0.1</version>
+            <version>${org.mybatis.spring}</version>
         </dependency>
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
-            <version>1.2.1</version>
+            <version>${commons.dbcp}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>3.0.5.RELEASE</version>
+            <version>${org.springframework.test}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>net.carefx.framework</groupId>
             <artifactId>framework-core</artifactId>
-            <version>3.4.4</version>
+            <version>${net.carefx.framework.core}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
+            <version>${org.slf4j}</version>
         </dependency>
 
         <dependency>
-            <groupId> org.apache.cassandra</groupId>
+            <groupId>org.lazyluke</groupId>
+            <artifactId>log4jdbc-remix</artifactId>
+            <version>${org.lazyluke}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lazyluke</groupId>
+            <artifactId>log4jdbc-remix</artifactId>
+            <version>0.2.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.cassandra</groupId>
             <artifactId>cassandra-all</artifactId>
-            <version>0.8.1</version>
+            <version>${org.apache.cassandra.all}</version>
 
             <exclusions>
                 <exclusion>
@@ -79,4 +97,47 @@
     </dependencies>
 
 
+    <profiles>
+        <!--默认配置,即开发时配置。方便开发人员在开发时调试portal工程-->
+        <profile>
+            <id>DEFAULT_INSTALL</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.datasource>classpath:META-INF/dataSource.xml</spring.datasource>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.lazyluke</groupId>
+                    <artifactId>log4jdbc-remix</artifactId>
+                    <version>0.2.7</version>
+                </dependency>
+            </dependencies>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>false</filtering>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources/META-INF/</directory>
+                        <filtering>true</filtering>
+                        <includes>
+                            <include>service-all.spring.xml</include>
+                        </includes>
+                        <targetPath>META-INF</targetPath>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources/META-INF/</directory>
+                        <filtering>false</filtering>
+                        <excludes>
+                            <exclude>service-all.spring.xml</exclude>
+                        </excludes>
+                        <targetPath>META-INF</targetPath>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+    </profiles>
 </project>

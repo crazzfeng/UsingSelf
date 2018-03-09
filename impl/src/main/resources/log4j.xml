@@ -1,3 +1,4 @@
+<!--位置需要和resources文件同级，强制要求-->
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 
@@ -10,14 +11,14 @@
 		</layout>
 	</appender>
 
-	<appender name="file" class="org.apache.log4j.RollingFileAppender" >
+<!--	<appender name="file" class="org.apache.log4j.RollingFileAppender" >
 		<param name="File" value="hrp-bas.log" />
 		<param name="MaxFileSize" value="20MB" />
 		<param name="MaxBackupIndex" value="10" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="=%d %-5p [%t] %-17c{2} (%13F:%L) %3x - %m%n" />
 		</layout>
-	</appender>
+	</appender>-->
 
 	<!-- <category name="net.carefx" additivity="false"> -->
 	<!-- <priority value="DEBUG"/> -->
@@ -77,12 +78,33 @@
 	<!-- <level value="DEBUG" /> -->
 	<!-- </logger> -->
 
-	<logger name="java.sql">
+<!--	<logger name="java.sql">
 	<level value="DEBUG" />
 	</logger>
 
 	<root>
 		<priority value="DEBUG" />
+		<appender-ref ref="console" />
+	</root>-->
+
+	<!--显示sql执行时间-->
+	<logger name="jdbc.sqltiming" additivity="false">
+		<level value="info" />
+		<appender-ref ref="console" />
+	</logger>
+
+	<!--显示结果集-->
+	<logger name="jdbc.resultsettable" additivity="false">
+		<level value="info" />
+		<appender-ref ref="console" />
+	</logger>
+
+	<!--<logger name="jdbc.audit" additivity="false">
+		<level value="info" />
+		<appender-ref ref="console" />
+	</logger>-->
+	<root>
+		<priority value="ERROR" />
 		<appender-ref ref="console" />
 	</root>
 

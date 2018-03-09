@@ -15,25 +15,96 @@
         <module>portal</module>
     </modules>
 
+    <properties>
+
+        <!--以下公共配置-->
+        <org.mybatis>3.0.5</org.mybatis>
+        <org.mybatis.spring>1.0.1</org.mybatis.spring>
+        <net.carefx.framework.core>3.4.4</net.carefx.framework.core>
+        <net.carefx.framework.ui>4.4.8</net.carefx.framework.ui>
+        <org.springframework.jdbc>3.0.5.RELEASE</org.springframework.jdbc>
+        <org.springframework.test>3.0.5.RELEASE</org.springframework.test>
+        <org.slf4j>1.6.6</org.slf4j>
+        <commons.dbcp>1.2.1</commons.dbcp>
+        <junit>4.12</junit>
+        <org.lazyluke>0.2.7</org.lazyluke>
+        <org.apache.cassandra.all>0.8.1</org.apache.cassandra.all>
+
+    </properties>
 
     <dependencies>
 
+        <!-- mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.0.5</version>
+            <version>${org.mybatis}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>${org.mybatis.spring}</version>
+        </dependency>
+
+        <!-- framework -->
+        <dependency>
+            <groupId>net.carefx.framework</groupId>
+            <artifactId>framework-core</artifactId>
+            <version>${net.carefx.framework.core}</version>
         </dependency>
 
         <dependency>
             <groupId>net.carefx.framework</groupId>
-            <artifactId>framework-core</artifactId>
-            <version>3.4.4</version>
+            <artifactId>framework-ui-shell</artifactId>
+            <version>${net.carefx.framework.ui}</version>
         </dependency>
 
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${org.springframework.jdbc}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${org.springframework.test}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- log4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j}</version>
+        </dependency>
+        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
+            <version>${org.slf4j}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.lazyluke</groupId>
+            <artifactId>log4jdbc-remix</artifactId>
+            <version>${org.lazyluke}</version>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>${commons.dbcp}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit}</version>
+        </dependency>
+
     </dependencies>
 
 

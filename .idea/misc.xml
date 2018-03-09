@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/api" />
+    <file type="web" url="file://$PROJECT_DIR$/impl" />
+    <file type="web" url="file://$PROJECT_DIR$/portal" />
+    <file type="web" url="file://$PROJECT_DIR$/ui" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>

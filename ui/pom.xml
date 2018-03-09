@@ -11,12 +11,15 @@
 
     <artifactId>ui</artifactId>
 
+    <packaging>war</packaging>
+    <name>ui</name>
+    <url>http://maven.apache.org</url>
 
     <dependencies>
         <dependency>
             <groupId>portal</groupId>
             <artifactId>com.crazy.net</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 </project>
