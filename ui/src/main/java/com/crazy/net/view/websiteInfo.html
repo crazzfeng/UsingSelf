@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>网站信息浏览</title>
+
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -16,51 +17,45 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h1>Hello, world!</h1>
-<button style="background-image: url('img/left-btn.gif');background-size: contain;height:33px;width:33px;">
-    进入
-</button>
-
-<form id="search_form" action="bootstrap.html">
-    <p>
-        名称：
-        <input class="input_style" id="serach_name" name="UserModel.name"/>
-        性别：
-        <input class="input_style" id="serach_gender" name="UserModel.gender"/>
-
-        <button class="button_style" id="button_search" type="submit">查询</button>
-    </p>
-    <p>
-        年龄：
-        <input class="input_style" id="serach_age" name="UserModel.age"/>
-        备注：
-        <input class="input_style" id="serach_remark" name="UserModel.remark"/>
-
-        <button class="button_style" id="button_clear" type="reset">清除</button>
-    </p>
+<form action="websiteInfo.html" method="get" name="websiteInfoModel" multiple="">
+    <input type="text" name="websiteInfoModel.name" id="name">
+    <input type="text" name="websiteInfoModel.http" id="http">
+    <input type="submit" value="查询" onclick="gridvalue()">
 </form>
 
-<table>
+<table border="1px" style="border-color: #1b1e21">
     <thead>
     <tr>
         <td>ID</td>
-        <td>姓名</td>
-        <td>性别</td>
-        <td>年龄</td>
+        <td>名称</td>
+        <td>地址</td>
         <td>备注</td>
+        <td>参数</td>
     </tr>
     </thead>
     <tbody>
+    <tr class="webvalue">
+        <td id="websiteInfoModel.id"></td>
+        <td id="websiteInfoModel.name"></td>
+        <td id="websiteInfoModel.http"></td>
+        <td id="websiteInfoModel.remark"></td>
+        <td id="websiteInfoModel.param"></td>
+    </tr>
 
     </tbody>
+
 </table>
 
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
 <script src="https://code.jquery.com/jquery.js"></script>
 <!-- 包括所有已编译的插件 -->
 <script src="js/bootstrap.min.js">
-    function search_form_value() {
-
+    Window.load(gridvalue());
+    function gridvalue() {
+       var name = document.getElementById("name").value;
+       var http = document.getElementById("http").value;
+       var url = "/websiteInfo/findListWithPage?websiteInfoModel.name="+name+"&websiteInfoModel.http="+http+"&start=0&end=5";
+        window.location.href=url;
     }
 </script>
 </body>
