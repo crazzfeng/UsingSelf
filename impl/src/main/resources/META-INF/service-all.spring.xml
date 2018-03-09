@@ -8,15 +8,12 @@
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-<context:component-scan base-package="com.crazy.net">
+    <context:component-scan base-package="com.crazy.net">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
 
     <import resource="classpath:META-INF/dao.spring.xml"/>
 
-    <bean id="userService" class="com.crazy.net.service.impl.UserServiceImpl">
-        <property name="userMapper" ref="userMapper"></property>
-    </bean>
 
 </beans>

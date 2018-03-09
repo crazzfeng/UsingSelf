@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crazy.net.dao.WebsiteInfoMapper">
+    <resultMap id="WebsiteInfoMap" type="com.crazy.net.pojo.WebsiteInfo">
+        <result property="id" column="ID"/>
+        <result property="name" column="NAME"/>
+        <result property="http" column="HTTP"/>
+        <result property="remark" column="REMARK"/>
+        <result property="param" column="PARAM"/>
+        <result property="extendProperty1" column="EXTEND_PROPERTY1"/>
+        <result property="extendProperty2" column="EXTEND_PROPERTY2"/>
+        <result property="extendProperty3" column="EXTEND_PROPERTY3"/>
+        <result property="extendProperty4" column="EXTEND_PROPERTY4"/>
+        <result property="extendProperty5" column="EXTEND_PROPERTY5"/>
+        <result property="extendProperty6" column="EXTEND_PROPERTY6"/>
+        <result property="extendProperty7" column="EXTEND_PROPERTY7"/>
+        <result property="extendProperty8" column="EXTEND_PROPERTY8"/>
+        <result property="extendProperty9" column="EXTEND_PROPERTY9"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        ID
+        ,NAME
+        ,HTTP
+        ,REMARK
+        ,PARAM
+        ,EXTEND_PROPERTY1
+        ,EXTEND_PROPERTY2
+        ,EXTEND_PROPERTY3
+        ,EXTEND_PROPERTY4
+        ,EXTEND_PROPERTY5
+        ,EXTEND_PROPERTY6
+        ,EXTEND_PROPERTY7
+        ,EXTEND_PROPERTY8
+        ,EXTEND_PROPERTY9
+    </sql>
+
+    <sql id="Example_Where_Clause">
+        <where>
+            <if test="id!=null and id!='' ">
+                AND ID = #{id,jdbcType=INTEGER}
+            </if>
+            <if test="name!=null and name!='' ">
+                AND NAME = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="http!=null and http!='' ">
+                AND HTTP = #{http,jdbcType=VARCHAR}
+            </if>
+            <if test="remark!=null and remark!='' ">
+                AND REMARK = #{remark,jdbcType=VARCHAR}
+            </if>
+            <if test="param!=null and param!='' ">
+                AND PARAM = #{param,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+
+    <insert id="add" parameterType="com.crazy.net.pojo.WebsiteInfo">
+        INSERT INTO usingself.website_info
+             (
+             NAME
+             ,HTTP
+             ,REMARK
+             ,PARAM
+             ,EXTEND_PROPERTY1
+             ,EXTEND_PROPERTY2
+             ,EXTEND_PROPERTY3
+             ,EXTEND_PROPERTY4
+             ,EXTEND_PROPERTY5
+             ,EXTEND_PROPERTY6
+             ,EXTEND_PROPERTY7
+             ,EXTEND_PROPERTY8
+             ,EXTEND_PROPERTY9
+             )
+        VALUES (
+             #{name,jdbcType=VARCHAR}
+             ,#{http,jdbcType=VARCHAR}
+             ,#{remark,jdbcType=VARCHAR}
+             ,#{param,jdbcType=VARCHAR}
+             ,#{extendProperty1,jdbcType=VARCHAR}
+             ,#{extendProperty2,jdbcType=VARCHAR}
+             ,#{extendProperty3,jdbcType=VARCHAR}
+             ,#{extendProperty4,jdbcType=VARCHAR}
+             ,#{extendProperty5,jdbcType=VARCHAR}
+             ,#{extendProperty6,jdbcType=VARCHAR}
+             ,#{extendProperty7,jdbcType=VARCHAR}
+             ,#{extendProperty8,jdbcType=VARCHAR}
+             ,#{extendProperty9,jdbcType=VARCHAR}
+        )
+
+    </insert>
+
+
+    <update id="update" parameterType="com.crazy.net.pojo.WebsiteInfo">
+        UPDATE usingself.website_info
+        <set>
+            <if test="name!=null and name!='' ">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="http!=null and http!='' ">
+                HTTP = #{http,jdbcType=VARCHAR},
+            </if>
+            <if test="remark!=null and remark!='' ">
+                REMARK = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="param!=null and param!='' ">
+                PARAM = #{param,jdbcType=VARCHAR},
+            </if>
+            <if test="extendProperty1!=null and extendProperty1!='' ">
+                EXTEND_PROPERTY1 = #{extendProperty1,jdbcType=VARCHAR},
+            </if>
+            <if test="extendProperty2!=null and extendProperty2!='' ">
+                EXTEND_PROPERTY2 = #{extendProperty2,jdbcType=VARCHAR},
+            </if>
+            <if test="extendProperty3!=null and extendProperty3!='' ">
+                EXTEND_PROPERTY3 = #{extendProperty3,jdbcType=VARCHAR},
+            </if>
+            <if test="extendProperty4!=null and extendProperty4!='' ">
+                EXTEND_PROPERTY4 = #{extendProperty4,jdbcType=VARCHAR},
+            </if>
+            <if test="extendProperty5!=null and extendProperty5!='' ">
+                EXTEND_PROPERTY5 = #{extendProperty5,jdbcType=VARCHAR},
+            </if>
+            <if test="extendProperty6!=null and extendProperty6!='' ">
+                EXTEND_PROPERTY6 = #{extendProperty6,jdbcType=VARCHAR},
+            </if>
+            <if test="extendProperty7!=null and extendProperty7!='' ">
+                EXTEND_PROPERTY7 = #{extendProperty7,jdbcType=VARCHAR},
+            </if>
+            <if test="extendProperty8!=null and extendProperty8!='' ">
+                EXTEND_PROPERTY8 = #{extendProperty8,jdbcType=VARCHAR},
+            </if>
+            <if test="extendProperty9!=null and extendProperty9!='' ">
+                EXTEND_PROPERTY9 = #{extendProperty9,jdbcType=VARCHAR},
+            </if>
+        </set>
+        WHERE ID =#{id,jdbcType=INTEGER}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Integer">
+       DELETE FROM usingself.website_info
+         WHERE ID = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <select id="findListWithPage" resultMap="WebsiteInfoMap" parameterType="com.crazy.net.pojo.WebsiteInfo">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM usingself.website_info
+        <include refid="Example_Where_Clause"/>
+    </select>
+
+
+    <select id="findCount" resultType="java.lang.Integer" parameterType="com.crazy.net.pojo.WebsiteInfo">
+        SELECT COUNT (*)
+        FROM usingself.website_info
+        <include refid="Example_Where_Clause"/>
+    </select>
+
+
+    <select id="findList" resultMap="WebsiteInfoMap" parameterType="com.crazy.net.pojo.WebsiteInfo">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM usingself.website_info
+        <include refid="Example_Where_Clause"/>
+    </select>
+
+
+    <select id="get" resultType="com.crazy.net.pojo.WebsiteInfo" parameterType="java.lang.Integer">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM usingself.website_info
+        WHERE ID = #{id,jdbcType=INTEGER}
+    </select>
+
+
+</mapper>
