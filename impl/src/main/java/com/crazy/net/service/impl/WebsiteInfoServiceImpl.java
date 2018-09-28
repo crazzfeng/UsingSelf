@@ -6,7 +6,6 @@ import com.crazy.net.pojo.WebsiteInfo;
 import com.crazy.net.service.WebsiteInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import net.carefx.framework.exception.BusinessException;
 
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class WebsiteInfoServiceImpl implements WebsiteInfoService
     {
         if(websiteInfo == null)
         {
-            throw new BusinessException("添加的对象为空");
+            throw new NullPointerException("添加的对象为空");
         }
         return websiteInfoMapper.add(websiteInfo);
     }
@@ -41,7 +40,7 @@ public class WebsiteInfoServiceImpl implements WebsiteInfoService
     {
         if(websiteInfo == null)
         {
-            throw new BusinessException("要更新的对象为空");
+            throw new NullPointerException("要更新的对象为空");
         }
         return websiteInfoMapper.update(websiteInfo);
     }
@@ -56,7 +55,7 @@ public class WebsiteInfoServiceImpl implements WebsiteInfoService
     {
         if(id == null)
         {
-            throw new BusinessException("传入id为空，无法删除");
+            throw new NullPointerException("传入id为空，无法删除");
         }
         return websiteInfoMapper.delete(id);
     }
@@ -71,7 +70,7 @@ public class WebsiteInfoServiceImpl implements WebsiteInfoService
     {
         if(id == null)
         {
-            throw new BusinessException("传入id为空，无法查找单个");
+            throw new NullPointerException("传入id为空，无法查找单个");
         }
         return websiteInfoMapper.get(id);
     }
@@ -84,7 +83,6 @@ public class WebsiteInfoServiceImpl implements WebsiteInfoService
      */
     public List<WebsiteInfo> findList(WebsiteInfo websiteInfo)
     {
-
         return websiteInfoMapper.findList(websiteInfo);
     }
 
