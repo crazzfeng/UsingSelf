@@ -1,8 +1,8 @@
 [{
-  sites:[
-    {http:"www.baidu.com",name:"百度"},
-    {http:"www.sougou.com",name:"搜狗"}
+  "sites":[
+    {"http":"www.baidu.com","name":"百度"},
+    {"http":"www.sougou.com","name":"搜狗"}
   ],
-  remark:"备注",
-  user:{name:"",gender:"",age:""}
+  "remark":"备注",
+  "user":{"name":"","gender":"","age":""}
 }]

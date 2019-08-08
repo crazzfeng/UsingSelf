@@ -9,7 +9,7 @@ package study2;
 public class GreenhouseController {
     public static void main(String[] args) {
         GreenhouseControls gc = new GreenhouseControls();
-        gc.addEvent(gc.new Bell(9000000000L));
+       // gc.addEvent(gc.new Bell(9000000000L));
         Event[] eventList = {
                 gc.new ThermostatNight(0),
                 gc.new LightOn(2000000000L),
@@ -18,13 +18,13 @@ public class GreenhouseController {
                 gc.new WaterOff(8000000000L),
                 gc.new ThermostatDay(14000000000L)
         };
-        gc.addEvent(gc.new Restart(20000000000L,eventList));
+       // gc.addEvent(gc.new Restart(20000000000L,eventList));
         if (args.length == 1){
-            gc.addEvent(new GreenhouseControls.Terminate(
-                    new Integer(args[0])
-            ));
+          //  gc.addEvent(new GreenhouseControls.Terminate(
+          //          new Integer(args[0])
+           // ));
         }
-        gc.run();
+        //gc.run();
 
     }
 }

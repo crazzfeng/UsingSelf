@@ -6,15 +6,15 @@ public class User implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    private Integer m_id;
+    private Integer id;
 
-    private String m_name;
+    private String name;
 
-    private String m_gender;
+    private String gender;
 
-    private Integer m_age;
+    private Integer age;
 
-    private String m_remark;
+    private String remark;
 
     public User()
     {
@@ -22,57 +22,57 @@ public class User implements Serializable
 
     public Integer getId()
     {
-        return m_id;
+        return id;
     }
 
     public void setId(Integer id)
     {
-        this.m_id = id;
+        this.id = id;
     }
 
     public String getName()
     {
-        return m_name;
+        return name;
     }
 
     public void setName(String name)
     {
-        this.m_name = name;
+        this.name = name;
     }
 
     public String getGender()
     {
-        return m_gender;
+        return gender;
     }
 
     public void setGender(String gender)
     {
-        this.m_gender = m_gender;
+        this.gender = gender;
     }
 
     public Integer getAge()
     {
-        return m_age;
+        return age;
     }
 
     public void setAge(Integer age)
     {
-        this.m_age = m_age;
+        this.age = age;
     }
 
     public String getRemark()
     {
-        return m_remark;
+        return remark;
     }
 
     public void setRemark(String remark)
     {
-        this.m_remark = remark;
+        this.remark = remark;
     }
 
     @Override
     public String toString()
     {
-        return "User{" + "ID[id]=" + m_id + ", 姓名[name]='" + m_name + '\'' + ", 性别[gender]='" + m_gender + '\'' + ", 年龄[age]=" + m_age + ", 备注[remark]='" + m_remark + '\'' + '}';
+        return "User{" + "ID[id]=" + id + ", 姓名[name]='" + name + '\'' + ", 性别[gender]='" + gender + '\'' + ", 年龄[age]=" + age + ", 备注[remark]='" + remark + '\'' + '}';
     }
 }

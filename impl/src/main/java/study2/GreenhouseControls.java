@@ -101,7 +101,7 @@ public class GreenhouseControls extends Controller{
             super(delayTime);
         }
         public void action(){
-            addEvent(new Bell(delayTime));
+            //addEvent(new Bell(delayTime));
         }
 
         public String toString(){
@@ -116,16 +116,16 @@ public class GreenhouseControls extends Controller{
             super(delayTime);
             this.eventList = eventList;
             for (Event e : eventList){
-                addEvent(e);
+              //  addEvent(e);
             }
         }
         public void action(){
             for (Event e : eventList){
                 e.start();
-                addEvent(e);
+                //addEvent(e);
             }
             start();
-            addEvent(this);
+            //addEvent(this);
         }
 
         public String toString(){

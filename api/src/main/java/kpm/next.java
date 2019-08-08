@@ -12,7 +12,7 @@ import java.util.Map;
 public class next {
 
     public static Map getNext(String child){
-        Map<Integer,Integer> map = new HashMap<>();
+        Map<Integer,Integer> map = new HashMap<Integer, Integer>();
         char[] str = child.toCharArray();
         StringBuffer pit = new StringBuffer();
         for (int k = 0 ; k < str.length ; k++){
