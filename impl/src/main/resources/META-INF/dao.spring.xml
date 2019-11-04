@@ -5,31 +5,8 @@
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
     <!-- Session工厂 -->
-    <bean id="us_sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="st-dataSource"/>
-        <!--<property name="configLocation" value="classpath:META-INF/us.mybatis.xml" />-->
-        <property name="mapperLocations">
-            <array>
-                <!--这里配置了sqlmap文件的扫描路径-->
-                <value>classpath:com.crazy.net.sqlmap/*.xml</value>
-            </array>
-        </property>
-        <!--这里配置了要注册别名的模型类的包，包中所有的内容会被注册别名，别名为类名。-->
-        <!-- <property name="typeAliasesPackage" value="com.crazy.net.pojo.**"></property>-->
-    </bean>
 
-    <bean id="MapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 这里的basePackage 指定了mapper路径，包中所有的mapper不用自己实现，SqlSessionTemplate会代理实现。 -->
-        <property name="basePackage" value="com.crazy.net.dao"/>
-        <property name="sqlSessionFactory" ref="us_sqlSessionFactory"/>
-        <property name="sqlSessionTemplate">
-            <bean class="org.mybatis.spring.SqlSessionTemplate">
-                <constructor-arg index="0" ref="us_sqlSessionFactory"/>
-                <!--提交模式为批量-->
-                <constructor-arg index="1" value="BATCH"/>
-            </bean>
-        </property>
-    </bean>
+
 
  <!--   <bean name="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -64,7 +41,7 @@
         <aop:advisor pointcut-ref="us-all-service-aop" advice-ref="usAdvice"/>
     </aop:config>-->
 
-    <import resource="classpath:META-INF/dataSource.xml"/>
+
 
     <!--<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="com.crazy.net.dao.UserMapper"/>

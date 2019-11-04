@@ -12,12 +12,6 @@
         <module name="ui" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="api" target="1.5" />
-      <module name="impl" target="1.5" />
-      <module name="portal" target="1.5" />
-      <module name="ui" target="1.5" />
-      <module name="UsingSelf" target="1.5" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8" />
   </component>
 </project>
